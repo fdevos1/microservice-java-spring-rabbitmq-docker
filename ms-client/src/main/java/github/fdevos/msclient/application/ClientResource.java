@@ -24,23 +24,23 @@ public class ClientResource {
 
     @PostMapping
     public ResponseEntity save(@RequestBody ClientSaveRequest request){
-        var cliente = request.toModel();
-        service.save(cliente);
+        var user = request.toModel();
+        service.save(user);
         URI headerLocation = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .query("cpf={cpf}")
-                .buildAndExpand(cliente.getCpf())
+                .buildAndExpand(user.getCpf())
                 .toUri();
         return ResponseEntity.created(headerLocation).build();
     }
 
     @GetMapping(params = "cpf")
-    public ResponseEntity dadosCliente(@RequestParam("cpf") String cpf){
-        var cliente = service.getByCPF(cpf);
-        if(cliente.isEmpty()){
+    public ResponseEntity userData(@RequestParam("cpf") String cpf){
+        var user = service.getByCPF(cpf);
+        if(user.isEmpty()){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(cliente);
+        return ResponseEntity.ok(user);
     }
 
 }
