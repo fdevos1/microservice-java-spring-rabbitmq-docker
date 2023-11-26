@@ -20,6 +20,7 @@ public class MscloudgatewayApplication {
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes().route(r -> r.path("/clients/**").uri("lb://msclient"))
                 .route(r -> r.path("/cartoes/**").uri("lb://mscards"))
+                .route(r -> r.path("/avaliacoes-credito/**").uri("lb://mscreditappraiser"))
                 .build();
     }
 }
