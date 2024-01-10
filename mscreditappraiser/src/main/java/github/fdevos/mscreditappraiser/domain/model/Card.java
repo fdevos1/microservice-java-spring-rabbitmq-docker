@@ -2,10 +2,13 @@ package github.fdevos.mscreditappraiser.domain.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
-public class UserData {
+public class Card {
 
     private Long id;
     private String name;
-    private Integer age;
+    private String flag;
+    private BigDecimal initialLimit;
 }

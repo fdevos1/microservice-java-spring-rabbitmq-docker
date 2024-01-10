@@ -36,8 +36,8 @@ public class CardsResource {
     }
 
     @GetMapping(params = "renda")
-    public ResponseEntity<List<Card>> getCardIncomeLessThenEquals(@RequestParam("renda") Long income) {
-        List<Card> list = cardService.getCardWithIncomeLessThanEquals(income);
+    public ResponseEntity<List<Card>> getCardIncomeEqualsOrLessThen(@RequestParam("renda") Long income) {
+        List<Card> list = cardService.getCardIncomeEqualsOrLessThen(income);
         return ResponseEntity.ok(list);
     }
 

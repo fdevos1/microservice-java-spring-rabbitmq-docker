@@ -19,7 +19,7 @@ public class CardService {
         return repository.save(card);
     }
 
-    public List<Card> getCardWithIncomeLessThanEquals(Long income) {
+    public List<Card> getCardIncomeEqualsOrLessThen(Long income) {
         var incomeBigDecimal = BigDecimal.valueOf(income);
 
         return repository.findByIncomeLessThanEqual(incomeBigDecimal);
